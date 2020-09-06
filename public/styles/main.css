@@ -3,19 +3,73 @@ body {
 	--body-min-width: 640px;
 
 	--main-color: #d6d6d6;
+	--main-alter-color: #555877;
 	--body-color: #867440;
 	--header-color: #555877;
 	--footer-color: var(--header-color);
+	--auth-color: var(--main-color);
 
-	--main-shadow: -8px 14px 22px 7px rgba(0,0,0,0.62);	
+	--main-shadow: -3px 3px 7px rgba(0,0,0,0.62);	
 
 	--main-font-color: rgba(0, 0, 0, .85);
 	--link-color: var(--main-font-color);
+	--main-font-alter-color: rgba(200, 200, 230, .85);
+
+	box-sizing: border-box;
+}
+
+.cf:after {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.p20,
+.p30,
+.p40,
+.p50 {
+	float: left;
+}
+
+.p20 {
+	width: 20%;
+}
+
+.p30 {
+	width: 30%;
+}
+
+.p40 {
+	width: 40%;
+}
+
+.p50 {
+	width: 50%;
+}
+
+.right {
+	float: right;
 }
 
 a {
 	text-decoration: none;
 	color: var(--link-color);
+}
+
+li {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
 }
 
 body {
@@ -27,13 +81,12 @@ body {
 	background: var(--body-color);
 
 	color: var(--main-font-color); 
+	font-family: sans-serif;
 }
 
 body header,
 body footer {
 	margin: auto;
-
-	background: ;
 }
 
 body header {
@@ -41,6 +94,8 @@ body header {
 }
 
 body footer {
+	padding: 10px;
+
 	background: var(--footer-color);
 }
 
@@ -50,6 +105,120 @@ main {
 	background: var(--main-color);
 }
 
+main > h1 {
+	margin-top: 0;
+	padding-top: 20px;
+}
+
 section {
 	padding: 20px 20px;
 }
+
+section:nth-child(even) {
+	background: var(--main-alter-color);
+}
+
+/* >Логотип */
+.logo {
+}
+
+.logo img {
+	width: 300px;
+}
+/* <Логотип */
+
+/* >Блок регистрации */
+.authentication-box {
+	width: 80%;
+
+	float: right;
+
+	background: var(--auth-color);
+
+	text-align: center;
+
+	box-shadow: var(--main-shadow);
+}
+
+.authentication-box div {
+	display: inline-block;
+}
+
+.authentication-box div:hover {
+	background: #eeffac;
+	transition: background .6s ease;
+}
+
+.authentication-box a {
+	display: inline-block;
+
+	padding: 10px 20px;
+}
+/* <Блок регистрации */
+
+/* >Навигация */
+header nav {
+	clear: both;
+}
+
+.main-menu {
+	margin: auto;
+
+	text-align: center;
+
+	border-top: 1px solid rgba(.5, .5, .5, .5);
+}
+
+.main-menu li {
+	display: inline-block;
+}
+
+.main-menu a {
+	display: inline-block;
+
+	padding: 10px;
+
+	color: var(--main-font-alter-color);
+	font-weight: bold;
+}
+
+.main-menu a:hover {
+	background: #eeffac;
+	transition: background .6s ease;
+
+	color: var(--main-font-color);
+}
+/* <Навигация */
+
+/* >Footer */
+.copy {
+	float: right;
+}
+/* <Footer */
+
+/* >Список услуг */
+#services form {
+	margin: auto;
+
+	text-align: center;
+}
+
+#services input {
+}
+
+#services .services-list {
+	margin-left: 30px;
+}
+
+#services .services-list li {
+	list-style: disc;
+}
+
+#services .services-list li a {
+	font-size: 1.5rem;
+	text-decoration: underline;
+}
+/* <Список услуг */
+
+/* <Список новостей */
+/* >Список новостей */
