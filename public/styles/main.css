@@ -27,6 +27,7 @@ body {
 .p20,
 .p30,
 .p40,
+.p48,
 .p50 {
 	float: left;
 }
@@ -43,12 +44,20 @@ body {
 	width: 40%;
 }
 
+.p48 {
+	width: 48%;
+}
+
 .p50 {
 	width: 50%;
 }
 
 .right {
 	float: right;
+}
+
+.row {
+	clear: both;
 }
 
 a {
@@ -221,4 +230,30 @@ header nav {
 /* <Список услуг */
 
 /* <Список новостей */
+#news article {
+	box-sizing: border-box;
+
+	box-shadow: var(--main-shadow);
+}
+
+#news article h1 {
+	text-align: left;
+	font-size: 1.1rem;
+}
+
+#news article h1 a:hover {
+	color: var(--main-font-alter-color);
+}
+
+#news img {
+	float: left;
+	padding-right: 10px;
+}
+
+#news .description {
+}
+
+#news .row {
+	margin: 10px 0;
+}
 /* >Список новостей */

@@ -5,7 +5,7 @@
 		<title>Сайт муниципальных услуг</title>
 
 		<link rel="stylesheet" type="text/css" href="styles/normalize.css">
-		<link rel="stylesheet" type="text/css" href="styles/main.css?v=0">
+		<link rel="stylesheet" type="text/css" href="styles/main.css?v=2">
 	</head>
 	<body>
 		<header>
@@ -60,18 +60,34 @@
 			<!-- end Список услуг -->
 
 			<!-- Список новостей -->
-			<section id="news">
+			<section id="news" class="cf">
 				<h1>Список новостей:</h1>
-				<article>
-					<image alt="" src="images/news/news1.jpeg" width="300" height="230">
-					<h1>В Анапе устраняют последствия мощного ливня</h1>
-					<p>Сегодня утром в течение получаса на Анапу обрушилось 39 мм осадков – больше месячной нормы.</p>
-				</article>
-				<article>
-					<image alt="" src="images/news/news1.jpeg" width="300" height="230">
-					<h1>На Кубани за сутки подтверждено 93 случая коронавирусной инфекции</h1>
-					<p>Среди них 56 женщин, 37 мужчин в возрасте до 85 лет.</p>
-				</article>
+				<div class="row cf">
+					<article class="p48">
+						<img alt="" src="images/news/news1.jpeg" width="300" height="230">
+						<div class="description">
+							<h1><a href="#">В Анапе устраняют последствия мощного ливня</a></h1>
+							<p>Сегодня утром в течение получаса на Анапу обрушилось 39 мм осадков – больше месячной нормы.</p>
+						</div>
+					</article>
+					<article class="p48 right">
+						<img alt="" src="images/news/news1.jpeg" width="300" height="230">
+						<h1><a href="#">На Кубани за сутки подтверждено 93 случая коронавирусной инфекции</a></h1>
+						<p>Среди них 56 женщин, 37 мужчин в возрасте до 85 лет.</p>
+					</article>
+				</div>
+				<div class="row cf">
+					<article class="p48">
+						<img alt="" src="images/news/news1.jpeg" width="300" height="230">
+						<h1><a href="#">На Кубани за сутки подтверждено 93 случая коронавирусной инфекции</a></h1>
+						<p>Среди них 56 женщин, 37 мужчин в возрасте до 85 лет.</p>
+					</article>
+					<article class="p48 right">
+						<img alt="" src="images/news/news1.jpeg" width="300" height="230">
+						<h1><a href="#">В Анапе устраняют последствия мощного ливня</a></h1>
+						<p>Сегодня утром в течение получаса на Анапу обрушилось 39 мм осадков – больше месячной нормы.</p>
+					</article>
+				</div>
 			</section>
 			<!-- end Список новостей -->
 
