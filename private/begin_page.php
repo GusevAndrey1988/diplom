@@ -8,5 +8,5 @@ define("APP_IS_PAGE_BEGIN", true);
 
 $Application = Main\Application::getInstance();
 
-$header = new Main\View\Template(APP_PRIVATE_DIR."/templates/header.php");
+$header = new Main\View\Template(APP_TEMPLATES_DIR."/header.php");
 $header->includeTemplate();

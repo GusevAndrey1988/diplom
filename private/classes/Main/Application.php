@@ -67,4 +67,12 @@ class Application
 	{
 		return $this->connection;
 	}
+
+	public function includeComponents($name, array $arParameters = [])
+	{
+		$name = str_replace(".", "/", $name);
+		$filepath = APP_COMPONENTS_DIR."/$name/init.php";
+
+		require $filepath;
+	}
 }
