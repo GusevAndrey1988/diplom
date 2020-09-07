@@ -60,19 +60,23 @@ body {
 	clear: both;
 }
 
+.hide {
+	display: none;
+}
+
 a {
 	text-decoration: none;
 	color: var(--link-color);
 }
 
-li {
+li, dt, dd {
 	margin: 0;
 	padding: 0;
 
 	list-style: none;
 }
 
-ul {
+ul, dl {
 	margin: 0;
 	padding: 0;
 }
@@ -125,6 +129,7 @@ section {
 
 section:nth-child(even) {
 	background: var(--main-alter-color);
+	color: var(--main-font-alter-color);
 }
 
 /* >Логотип */
@@ -257,3 +262,25 @@ header nav {
 	margin: 10px 0;
 }
 /* >Список новостей */
+
+/* >Список ЧАВо */
+#faq .faq-list {
+	margin-left: 30px;
+}
+
+#faq .faq-list dt {
+	margin-top: 10px;
+
+	font-size: 1.5rem;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#faq .faq-list dt:before {
+	content: "-";
+}
+
+#faq .faq-list dd {
+	margin-left: 20px;
+}
+/* <Список ЧАВо */
