@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once "autoloader.php";
 require_once "configs/dirs.php";
 require_once "configs/database.php";

@@ -4,9 +4,9 @@
  * Validator.php
  */
 
-namespace Main/Validators;
+namespace Main\Validators;
 
 interface Validator 
 {
-	public bool validate($value);
+	public function validate($value) : bool;
 }

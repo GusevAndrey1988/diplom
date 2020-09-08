@@ -22,20 +22,22 @@
 				<div class="p30 right">
 					<div class="authentication-box">
 						<div><a href="#">Вход</a></div>
-						<div><a href="#">Регистрация</a></div>
+						<div><a href="/registration.php">Регистрация</a></div>
 					</div>
 				</div>
 				<!-- end Аутентификация -->
 			<div>
 
 			<!-- Навигация (осн.) -->
-			<nav>
-				<ul class="main-menu">
-					<li><a href="#services">Услуги</a></li>
-					<li><a href="#news">Новости</a></li>
-					<li><a href="#faq">Часто задаваемые вопросы</a></li>
-				</ul>
-			</nav>
+			<?php
+				Main\Application::getInstance()->includeComponents(
+					"menu",
+					[
+						"template" => APP_TEMPLATES_DIR."/components/menu/main.php",
+						"menu_data" => APP_PUBLIC_DIR."/main_menu_data.php"
+					]
+				);
+			?>
 			<!-- end Навигация (осн.) -->
 		</header>
 

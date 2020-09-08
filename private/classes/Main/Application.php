@@ -27,7 +27,7 @@ class Application
 		try 
 		{
 			$this->connection = new \PDO(
-				"mysql:dbname=$dbname;host=$host;port=$port",
+				"mysql:dbname=$dbname;host=$host;port=$port;charset=utf8",
 				$user,
 				$password,
 				[\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]

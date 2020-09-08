@@ -7,14 +7,14 @@ CREATE TABLE `permissions` (
 	`id`          INT(11) PRIMARY KEY AUTO_INCREMENT,
 	`name`        VARCHAR(20) NOT NULL UNIQUE,
 	`description` VARCHAR(256)
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 /* Таблица групп пользователей */
 CREATE TABLE `groups` (
 	`id`          INT(11) PRIMARY KEY AUTO_INCREMENT,
 	`name`        VARCHAR(20) NOT NULL UNIQUE,
 	`description` VARCHAR(256)
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 /* Таблица соответствия групп с из правами */
 CREATE TABLE `group_permission` (
@@ -31,7 +31,7 @@ CREATE TABLE `group_permission` (
 		REFERENCES `permissions` (`id`)
 			ON DELETE CASCADE
 			ON UPDATE CASCADE
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 /* Таблица паспортных данных пользователей */
 CREATE TABLE `passports_data` (
@@ -40,8 +40,10 @@ CREATE TABLE `passports_data` (
 	`series`           VARCHAR(4) NOT NULL,          #Серия
 	`date`             DATE NOT NULL,                #Дата выдачи
 	`departament_code` VARCHAR(6) NOT NULL,          #Код подразделеиня
-	`issued_by`        VARCHAR(256) NOT NULL         #Кем выдан
-);
+	`issued_by`        VARCHAR(256) NOT NULL,        #Кем выдан
+
+	UNIQUE KEY `passport_key` (`series`, `number`)   #Делаем пару (series, number) уникальной
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
 /* Таблица пользователей */
 CREATE TABLE `users` (
@@ -49,6 +51,7 @@ CREATE TABLE `users` (
 	`first_name`       VARCHAR(64) NOT NULL,
 	`last_name`        VARCHAR(64) NOT NULL,
 	`patronymic`       VARCHAR(64) DEFAULT "",       #Отчество
+	`password`         VARCHAR(100) NOT NULL,
 	`passport_data_id` INT(11) UNIQUE DEFAULT NULL,
 	`email`            VARCHAR(100) NOT NULL UNIQUE,
 	`reg_date`         DATETIME NOT NULL,            #Дата регистрации
@@ -63,4 +66,4 @@ CREATE TABLE `users` (
 		REFERENCES `groups` (`id`)
 			ON DELETE NO ACTION
 			ON UPDATE CASCADE
-);
+) ENGINE = InnoDB DEFAULT CHARSET=utf8;
