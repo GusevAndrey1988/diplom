@@ -75,4 +75,10 @@ class Application
 
 		require $filepath;
 	}
+
+	public function redirect(string $url)
+	{
+		header("Location: $url");
+		exit();
+	}
 }

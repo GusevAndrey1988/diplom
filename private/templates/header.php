@@ -5,7 +5,7 @@
 		<title>Сайт муниципальных услуг</title>
 
 		<link rel="stylesheet" type="text/css" href="styles/normalize.css">
-		<link rel="stylesheet" type="text/css" href="styles/main.css?v=2">
+		<link rel="stylesheet" type="text/css" href="styles/main.css?v=3">
 	</head>
 	<body>
 		<header>

@@ -6,15 +6,12 @@
 
 <?php
 Main\Application::getInstance()->includeComponents(
-	"test.test",
+	"form",
 	[
-		'text' => "hello world"
+		'template' => APP_TEMPLATES_DIR."/components/forms/user_registration.php",
+		'action' => "/registration.php"
 	]
 );
-?>
-
-<?php
-	print_r(Main\Db\Users::getUserById(1));
 ?>
 
 <?php
