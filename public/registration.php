@@ -6,7 +6,7 @@
 
 <?php
 Main\Application::getInstance()->includeComponents(
-	"form",
+	"form.registration",
 	[
 		'template' => APP_TEMPLATES_DIR."/components/forms/user_registration.php",
 		'action' => "/registration.php"

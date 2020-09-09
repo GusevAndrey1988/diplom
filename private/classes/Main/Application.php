@@ -39,6 +39,17 @@ class Application
 		}
 	}
 
+	private function createGuestUser()
+	{
+		$groupId = Db\Groups::getGroupByName("guest");
+
+		$data = [
+			'group_id' => $groupId
+		];
+
+		$_SESSION['user'] = new User($data);
+	}
+
 	public function __construct()
 	{
 		if (! is_null(self::$_instance))
@@ -80,5 +91,22 @@ class Application
 	{
 		header("Location: $url");
 		exit();
+	}
+
+	public function getCurrentUser() : User
+	{
+		if (! isset($_SESSION['user']))
+		{
+			$this->createGuestUser();
+		}
+		else
+		{
+			return unserialize($_SESSION['user']);
+		}
+	}
+
+	public function setCurrentUser(User $user)
+	{
+		$_SESSION['user'] = serialize($user);
 	}
 }
