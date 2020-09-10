@@ -10,7 +10,8 @@ class NameValidator implements Validator
 {
 	public function validate($value) : bool 
 	{
-		if (preg_match('/[^\s\w]/', $value))
+		$afterValue = filter_var($value, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		if ($afterValue != $value)
 		{
 			return false;
 		}

@@ -1,8 +1,10 @@
 <?php
-if (! defined("APP_IS_PAGE_BEGIN") || APP_IS_PAGE_BEGIN !== true)
-{
-	exit();
-}
+
+/**
+ * end_page.php
+ */
+
+require_once "end_app.php";
 
 $footer = new Main\View\Template(APP_PRIVATE_DIR."/templates/footer.php");
 $footer->includeTemplate();

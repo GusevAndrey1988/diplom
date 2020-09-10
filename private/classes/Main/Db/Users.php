@@ -66,7 +66,7 @@ class Users
 		try
 		{
 			$query = $connection->prepare($selectUserQuery);
-			$query->bindParam(":email", $email, \PDO::PARAM_INT);
+			$query->bindParam(":email", $email, \PDO::PARAM_STR);
 			$query->execute();
 		}
 		catch (\PDOException $e)
@@ -92,18 +92,38 @@ class Users
 		int    $groupId,
 		string $password
 	) : array {
-		$nameValidator = new \Main\Validators\NameValidator();
-		$idValidator   = new \Main\Validators\IdValidator();
-		$emailValidator   = new \Main\Validators\EmailValidator();
+		$nameValidator  = new \Main\Validators\NameValidator();
+		$idValidator    = new \Main\Validators\IdValidator();
+		$emailValidator = new \Main\Validators\EmailValidator();
 
-		if (! ($nameValidator->validate(trim($firstName)) 
-			&& $nameValidator->validate(trim($lastName))
-			&& $nameValidator->validate(trim($patronymic))
-			&& $emailValidator->validate(trim($email))
-			&& $idValidator->validate($groupId)))
+		if (! $nameValidator->validate(trim($firstName)))
 		{
 			throw new \Main\Errors\ApplicationError(
-				"Ошибка валидации '".__METHOD__."'"
+				"Ошибка валидации '".__METHOD__."' FIRST_NAME"
+			);
+		}
+		else if (! $nameValidator->validate(trim($lastName)))
+		{
+			throw new \Main\Errors\ApplicationError(
+				"Ошибка валидации '".__METHOD__."' LAST_NAME"
+			);
+		}
+		else if (! $nameValidator->validate(trim($patronymic)))
+		{
+			throw new \Main\Errors\ApplicationError(
+				"Ошибка валидации '".__METHOD__."' PATRONYMIC"
+			);
+		}
+		else if (! $emailValidator->validate(trim($email)))
+		{
+			throw new \Main\Errors\ApplicationError(
+				"Ошибка валидации '".__METHOD__."' EMAIL"
+			);
+		}
+		else if (! $idValidator->validate($groupId))
+		{
+			throw new \Main\Errors\ApplicationError(
+				"Ошибка валидации '".__METHOD__."' GROUP_ID"
 			);
 		}
 
@@ -130,9 +150,27 @@ class Users
 		}
 		catch (\PDOException $e)
 		{
-			throw new \Main\Errors\ApplicationError(
-				"Ошибка запроса к базе данных"
-			);
+			// 23000 - dublicate primary key or unique field
+			if ($e->getCode() == "23000")
+			{
+				$field = "";
+
+				if (preg_match("/'email'/", $e->getMessage()))
+				{
+					$field = "email";
+				}
+
+				throw new \Main\Errors\ApplicationError(
+					"Пользователь с таким $field уже существует",
+					APP_ERROR_USER_ALREADY_EXISTS
+				);
+			}
+			else
+			{
+				throw new \Main\Errors\ApplicationError(
+					"Ошибка запроса к базе данных"
+				);
+			}
 		}
 
 		return [

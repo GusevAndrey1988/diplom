@@ -30,6 +30,13 @@ class Template
 	{
 		$arParameters = $this->getParameters();
 
+		if (! file_exists($this->filename)) 
+		{
+			throw new \Main\Errors\ApplicationError(
+				"Файл шаблона не обнаружен"
+			);
+		}
+
 		require $this->filename;
 	}
 }

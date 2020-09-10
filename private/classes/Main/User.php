@@ -21,6 +21,8 @@ class User
 
 	private $changed = false;
 
+	private $logged  = false;
+
 	public function __construct($arParameters = [])
 	{
 		if (isset($arParameters['id']))
@@ -182,5 +184,15 @@ class User
 	public function getChecked()
 	{
 		return $this->checked;
+	}
+
+	public function isLogged() : bool 
+	{
+		return $this->logged;
+	}
+
+	public function setLogged(bool $logged)
+	{
+		$this->logged = $logged;
 	}
 }

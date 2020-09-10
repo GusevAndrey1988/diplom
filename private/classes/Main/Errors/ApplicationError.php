@@ -6,6 +6,8 @@
 
 namespace Main\Errors;
 
+define("APP_ERROR_USER_ALREADY_EXISTS", 1);
+
 class ApplicationError extends \Exception
 {
 	/*

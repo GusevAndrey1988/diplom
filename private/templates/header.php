@@ -1,3 +1,7 @@
+<?php
+	$application = \Main\Application::getInstance();
+	$user        = $application->getCurrentUser();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -5,7 +9,7 @@
 		<title>Сайт муниципальных услуг</title>
 
 		<link rel="stylesheet" type="text/css" href="styles/normalize.css">
-		<link rel="stylesheet" type="text/css" href="styles/main.css?v=3">
+		<link rel="stylesheet" type="text/css" href="styles/main.css?v=2">
 	</head>
 	<body>
 		<header>
@@ -21,8 +25,13 @@
 				<!-- Аутентификация -->
 				<div class="p30 right">
 					<div class="authentication-box">
-						<div><a href="#">Вход</a></div>
-						<div><a href="/registration.php">Регистрация</a></div>
+						<?php if ($user->isLogged()) : ?>
+							<div><a href="/logout.php">Выход</a></div>
+							<div><a href="#"><?=$user->getLastName()." ".$user->getFirstName()?></a></div>
+						<?php else : ?>
+							<div><a href="/login.php">Вход</a></div>
+							<div><a href="/registration.php">Регистрация</a></div>
+						<?php endif; ?>
 					</div>
 				</div>
 				<!-- end Аутентификация -->

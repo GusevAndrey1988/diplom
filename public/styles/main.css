@@ -64,6 +64,21 @@ body {
 	display: none;
 }
 
+.error-message {
+	padding: 5px 0;
+	background: yellow;
+
+	font-size: 1.1rem;
+	color: red;
+	text-align: center;
+}
+
+.required-field:after {
+	content: '*';
+
+	color: red;
+}
+
 a {
 	text-decoration: none;
 	color: var(--link-color);
@@ -97,6 +112,10 @@ body {
 
 	color: var(--main-font-color); 
 	font-family: sans-serif;
+}
+
+main {
+	padding: 10px 0;
 }
 
 body header,
@@ -296,23 +315,27 @@ header nav {
 /* <Список ЧАВо */
 
 /* >templates/componets/forms */
-#user-registration {
+#user-registration,
+#user-login {
 	padding-bottom: 10px;
 }
 
-#user-registration fieldset {
+#user-registration fieldset,
+#user-login fieldset {
 	width: 80%;
 
 	margin: 0 auto;
 }
 
-#user-registration div {
+#user-registration div,
+#user-login div {
 	width: 60%;
 
 	margin: 10px auto;
 }
 
-#user-registration div label {
+#user-registration div label,
+#user-login div label {
 	display: inline-block;
 
 	width: 49%;
@@ -320,7 +343,8 @@ header nav {
 	box-sizing: border-box;
 }
 
-#user-registration div input {
+#user-registration div input,
+#user-login div input {
 	display: inline-block;
 
 	width: 50%;
@@ -328,9 +352,16 @@ header nav {
 	box-sizing: border-box;
 }
 
-#user-registration div:last-child input {
+#user-registration div:last-of-type input,
+#user-login div:last-of-type input {
 	display: block;
 	margin: 20px auto 0 auto;
+}
+
+#user-registration p:last-child,
+#user-login p:last-child {
+	font-weight: bold;
+	text-align: center;
 }
 /* <templates/componets/forms */
 

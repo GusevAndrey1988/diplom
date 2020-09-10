@@ -41,13 +41,13 @@ class Application
 
 	private function createGuestUser()
 	{
-		$groupId = Db\Groups::getGroupByName("guest");
+		$groupId = Db\Groups::getGroupByName("guest")['id'];
 
 		$data = [
 			'group_id' => $groupId
 		];
 
-		$_SESSION['user'] = new User($data);
+		$_SESSION['user'] = serialize(new User($data));
 	}
 
 	public function __construct()
@@ -84,6 +84,13 @@ class Application
 		$name = str_replace(".", "/", $name);
 		$filepath = APP_COMPONENTS_DIR."/$name/init.php";
 
+		if (! file_exists($filepath))
+		{
+			throw new \Main\Errors\ApplicationError(
+				"Компонент не обнаружен"
+			);
+		}
+
 		require $filepath;
 	}
 
@@ -99,14 +106,17 @@ class Application
 		{
 			$this->createGuestUser();
 		}
-		else
-		{
-			return unserialize($_SESSION['user']);
-		}
+
+		return unserialize($_SESSION['user']);
 	}
 
 	public function setCurrentUser(User $user)
 	{
 		$_SESSION['user'] = serialize($user);
+	}
+
+	public function clearCurrentUser()
+	{
+		unset ($_SESSION['user']);
 	}
 }
