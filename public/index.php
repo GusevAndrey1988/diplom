@@ -11,11 +11,14 @@
 				</form>
 
 				<h1>Популярные услуги:</h1>
-				<ul class="services-list">
-					<li><a href="#">Услуга 1</a></li>
-					<li><a href="#">Услуга 2</a></li>
-					<li><a href="#">Услуга 3</a></li>
-				</ul>
+				<?php
+					$application->includeComponents(
+						"services.top_services_list",
+						[
+							"count" => 10
+						]
+					);
+				?>
 			</section>
 			<!-- end Список услуг -->
 
@@ -74,4 +77,3 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT']."/footer.php";
 ?>
-
