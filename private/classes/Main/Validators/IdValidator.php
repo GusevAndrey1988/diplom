@@ -10,7 +10,7 @@ class IdValidator implements Validator
 {
 	public function validate($value) : bool 
 	{
-		if (! is_integer($value))
+		if (! is_numeric($value) || intval($value) != $value)
 		{
 			return false;
 		}

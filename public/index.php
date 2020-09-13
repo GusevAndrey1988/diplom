@@ -58,18 +58,18 @@
 			<section id="faq">
 				<h1>Часто задаваемые вопросы:</h1>
 				<dl class="faq-list">
-					<dt onclick="showDescr(0)">Как записатся на услугу?</dt>
+					<dt onclick="showDescr(this)">Как записатся на услугу?</dt>
 					<dd class="hide">Сходи поспи и всё пройдёт.</dd>
-					<dt onclick="showDescr(1)">Сайт не работает, что делать?</dt>
+					<dt onclick="showDescr(this)">Сайт не работает, что делать?</dt>
 					<dd class="hide">Сходи поспи и всё пройдёт.</dd>
 				</dl>
 
 				<script>
-					function showDescr(n) {
-						let list = document.querySelectorAll("#faq .faq-list dd");
-
-						let el = list[n];
-						el.classList.toggle("hide");
+					function showDescr(el) {
+						let sibl = el;
+						while ((sibl = sibl.nextElementSibling) && sibl.tagName == "DD") {
+							sibl.classList.toggle("hide");
+						}
 					}
 				</script>
 			</section>

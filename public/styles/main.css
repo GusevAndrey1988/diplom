@@ -14,6 +14,7 @@ body {
 	--main-font-color: rgba(0, 0, 0, .85);
 	--link-color: var(--main-font-color);
 	--main-font-alter-color: rgba(200, 200, 230, .85);
+	--main-font-hover-color: black;
 
 	box-sizing: border-box;
 }
@@ -89,6 +90,39 @@ li, dt, dd {
 	padding: 0;
 
 	list-style: none;
+}
+
+dl {
+	margin-left: 30px;
+}
+
+dt {
+	margin-top: 10px;
+
+	font-size: 1.5rem;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+dt:before {
+	content: "-";
+}
+
+dd {
+	margin-left: 20px;
+
+	font-size: 1.2rem;
+}
+
+dd:first-of-type {
+	margin-top: 10px;
+}
+
+dd a:hover {
+	transition: color .4s ease;	
+
+	color: var(--main-font-hover-color);
+	font-weight: bold;
 }
 
 ul, dl {
@@ -294,25 +328,6 @@ header nav {
 /* >Список новостей */
 
 /* >Список ЧАВо */
-#faq .faq-list {
-	margin-left: 30px;
-}
-
-#faq .faq-list dt {
-	margin-top: 10px;
-
-	font-size: 1.5rem;
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-#faq .faq-list dt:before {
-	content: "-";
-}
-
-#faq .faq-list dd {
-	margin-left: 20px;
-}
 /* <Список ЧАВо */
 
 /* >templates/componets/forms */

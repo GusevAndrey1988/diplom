@@ -9,14 +9,14 @@
 		<title>Сайт муниципальных услуг</title>
 
 		<link rel="stylesheet" type="text/css" href="styles/normalize.css">
-		<link rel="stylesheet" type="text/css" href="styles/main.css?v=1">
+		<link rel="stylesheet" type="text/css" href="styles/main.css?v=3">
 	</head>
 	<body>
 		<header>
 			<div class="cf">
 				<!-- Логотип -->
 				<div class="logo p30">
-					<img alt="Логотип" src="images/logo.png">
+					<a href="/index.php"><img alt="Логотип" src="images/logo.png"></a>
 				</div>
 				<!-- end Логотип -->
 

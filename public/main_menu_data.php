@@ -8,7 +8,7 @@ $arMenuData = [
 	"items" => [
 		[
 			"name" => "Услуги",
-			"link" => "/index.php#services",
+			"link" => "/services.php",
 			"permission" => []
 		],
 		[
