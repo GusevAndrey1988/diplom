@@ -27,7 +27,7 @@
 					<div class="authentication-box">
 						<?php if ($user->isLogged()) : ?>
 							<div><a href="/logout.php">Выход</a></div>
-							<div><a href="#"><?=$user->getLastName()." ".$user->getFirstName()?></a></div>
+							<div><a href="/personal_page.php"><?=$user->getLastName()." ".$user->getFirstName()?></a></div>
 						<?php else : ?>
 							<div><a href="/login.php">Вход</a></div>
 							<div><a href="/registration.php">Регистрация</a></div>
