@@ -136,6 +136,10 @@ h1, h2 {
 	text-align: center;
 }
 
+fieldset {
+	margin-bottom: 20px;
+}
+
 body {
 	max-width: var(--body-max-width);
 	min-width: var(--body-min-width);
@@ -331,18 +335,23 @@ header nav {
 /* <Список ЧАВо */
 
 /* >templates/componets/forms */
+/* >personal_page */
+#user-data,
 #user-registration,
 #user-login {
 	padding-bottom: 10px;
 }
 
+#user-data fieldset,
 #user-registration fieldset,
 #user-login fieldset {
 	width: 80%;
 
-	margin: 0 auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
+#user-data div,
 #user-registration div,
 #user-login div {
 	width: 60%;
@@ -350,6 +359,7 @@ header nav {
 	margin: 10px auto;
 }
 
+#user-data div label,
 #user-registration div label,
 #user-login div label {
 	display: inline-block;
@@ -359,15 +369,17 @@ header nav {
 	box-sizing: border-box;
 }
 
+#user-data div input,
 #user-registration div input,
 #user-login div input {
 	display: inline-block;
 
-	width: 50%;
+	width: 49%;
 
 	box-sizing: border-box;
 }
 
+#user-data input[type="submit"],
 #user-registration div:last-of-type input,
 #user-login div:last-of-type input {
 	display: block;
@@ -379,6 +391,7 @@ header nav {
 	font-weight: bold;
 	text-align: center;
 }
+/* <personal_page */
 /* <templates/componets/forms */
 
 /* >registration page */

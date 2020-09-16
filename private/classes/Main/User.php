@@ -161,7 +161,7 @@ class User
 
 	public function getRegDate()
 	{
-		return $this->req_date;
+		return $this->reg_date;
 	}
 
 	public function setGroupId(int $id)

@@ -47,7 +47,7 @@ class Users
 
 	static public function getUserByEmail(string $email) : array
 	{
-		$email = trim($email);
+		$email = strtolower(trim($email));
 
 		$emailValidator = new \Main\Validators\EmailValidator();
 
@@ -96,25 +96,25 @@ class Users
 		$idValidator    = new \Main\Validators\IdValidator();
 		$emailValidator = new \Main\Validators\EmailValidator();
 
-		if (! $nameValidator->validate(trim($firstName)))
+		if (! $nameValidator->validate($firstName = trim($firstName)))
 		{
 			throw new \Main\Errors\ApplicationError(
 				"Ошибка валидации '".__METHOD__."' FIRST_NAME"
 			);
 		}
-		else if (! $nameValidator->validate(trim($lastName)))
+		else if (! $nameValidator->validate($lastName = trim($lastName)))
 		{
 			throw new \Main\Errors\ApplicationError(
 				"Ошибка валидации '".__METHOD__."' LAST_NAME"
 			);
 		}
-		else if (! $nameValidator->validate(trim($patronymic)))
+		else if (! $nameValidator->validate($patronymic = trim($patronymic)))
 		{
 			throw new \Main\Errors\ApplicationError(
 				"Ошибка валидации '".__METHOD__."' PATRONYMIC"
 			);
 		}
-		else if (! $emailValidator->validate(trim($email)))
+		else if (! $emailValidator->validate($email = strtolower(trim($email))))
 		{
 			throw new \Main\Errors\ApplicationError(
 				"Ошибка валидации '".__METHOD__."' EMAIL"
